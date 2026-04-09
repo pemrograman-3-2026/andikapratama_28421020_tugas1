@@ -1,0 +1,578 @@
+/* =========================================
+   1. VARIABEL & BASE (Untuk Semua Layar)
+   ========================================= */
+
+:root {
+    /* Palet Warna (Tema Soft & Modern) */
+    --warna-bg: #f4f3f8;
+    /* Abu-abu sangat terang untuk latar */
+    --warna-bg-alt: #816cdb;
+    /* Putih murni untuk membedakan section */
+
+    --warna-teks-utama: #1e293b;
+    /* Warna teks utama (hitam keabu-abuan, lebih soft dari pure black) */
+    --warna-teks-sekunder: #64748b;
+    /* Warna teks pendukung */
+
+    --warna-aksen: #6366f1;
+    /* Aksen warna ungu muda / biru soft */
+    --warna-aksen-hover: #4f46e5;
+    /* Aksen saat tombol dihover (sedikit lebih gelap) */
+    --warna-aksen-soft: #0c41ef;
+    /* Aksen sangat terang untuk background tag dan image placeholder */
+
+    /* Tipografi dari Google Fonts */
+    --font-heading: 'Outfit', sans-serif;
+    /* Font berkarakter modern untuk judul */
+    --font-body: 'Inter', sans-serif;
+    /* Font clean dan sangat terbaca untuk paragraf */
+
+    /* Utilitas */
+    --transisi: all 0.3s ease;
+    --border-radius-card: 16px;
+    --border-radius-btn: 50px;
+    --bayangan-halus: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset CSS dasar (agar tampilan konsisten di semua browser) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Smooth scroll saat mengklik link navbar */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--warna-teks-utama);
+    background-color: var(--warna-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Mencegah halaman bisa di-scroll ke samping */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transisi);
+}
+
+ul {
+    list-style: none;
+    /* Menghilangkan titik (bullet) pada list */
+}
+
+/* Base Layout Container */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    /* Padding kiri-kanan agar tidak menempel pinggir di layar kecil */
+}
+
+.section {
+    padding: 5rem 0;
+    /* Jarak atas-bawah untuk setiap section */
+}
+
+.bg-light {
+    background-color: var(--warna-bg-alt);
+    /* Latar belakang untuk section selang-seling */
+}
+
+/* Tipografi Pemasangan */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+h2.section-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Garis dekorasi di bawah judul section */
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 4px;
+    background-color: var(--warna-aksen);
+    border-radius: 4px;
+}
+
+.section-subtitle {
+    color: var(--warna-teks-sekunder);
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Style Tombol Mendasar */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    border-radius: var(--border-radius-btn);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--warna-aksen);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    /* Bayangan aura ungu/biru */
+}
+
+.btn-primary:hover {
+    background-color: var(--warna-aksen-hover);
+    transform: translateY(-2px);
+    /* Efek tombol naik saat hover */
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+/* =========================================
+   2. KOMPONEN MOBILE-FIRST (Layar Kecil)
+   ========================================= */
+
+/* Navbar - Mobile Style */
+.navbar {
+    position: fixed;
+    /* Selalu di atas */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    /* Efek Glassmorphism (Transparan Blur) */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    /* Tersusun ke bawah pada di layar kecil */
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--warna-aksen);
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    /* Membungkus menu jika layar sangat kecil */
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--warna-teks-sekunder);
+}
+
+.nav-links a:hover {
+    color: var(--warna-aksen);
+}
+
+/* Hero Section - Mobile Style */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 140px;
+    /* Offset untuk navbar bertingkat di mobile */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* Agar konten tetap di atas dekorasi */
+    display: flex;
+    flex-direction: column-reverse;
+    /* Menaruh foto di atas teks pada HP */
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.hero-image {
+    width: 200px;
+    /* Ukuran proporsional di HP */
+    height: 200px;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Mencegah foto gepeng */
+}
+
+.greeting {
+    font-size: 1rem;
+    color: var(--warna-aksen);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--warna-teks-sekunder);
+    margin-bottom: 1.5rem;
+}
+
+.hero-desc {
+    color: var(--warna-teks-sekunder);
+    margin-bottom: 2.5rem;
+}
+
+/* Dekorasi background hero section */
+.hero-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    /* Efek blur/glow soft */
+    opacity: 0.5;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--warna-aksen-soft);
+    top: -50px;
+    right: -50px;
+}
+
+.circle-2 {
+    width: 250px;
+    height: 250px;
+    background: rgba(167, 139, 250, 0.25);
+    bottom: 50px;
+    left: -50px;
+}
+
+/* About Section - Mobile Style */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 Kolom alias ke bawah pada mobile */
+    gap: 2.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+    color: var(--warna-teks-sekunder);
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    /* Ke bawah */
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-card);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: var(--bayangan-halus);
+}
+
+.stat-card h3 {
+    color: var(--warna-aksen);
+    margin-bottom: 0.5rem;
+}
+
+/* Portfolio Section - Mobile Style */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 Baris pada posisi vertikal / 1 Kolom pada hp */
+    gap: 2rem;
+}
+
+.portfolio-card {
+    background: white;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    /* Agar gambar mengikuti ujung bulat */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: var(--bayangan-halus);
+    transition: var(--transisi);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    /* Card naik saat di hover*/
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    /* Bayangan melebar / lebih gelap */
+}
+
+/* Gaya placeholder (sebagai pengganti jika tidak ada gambar asli) */
+.card-image {
+    width: 100%;
+    height: 200px;
+}
+
+/* Gradient elegan untuk placeholder */
+.placeholder-1 {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+}
+
+.placeholder-2 {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.placeholder-3 {
+    background: linear-gradient(135deg, #a056ef 0%, #d8b4fe 100%);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--warna-aksen-soft);
+    color: var(--warna-aksen);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-desc {
+    color: var(--warna-teks-sekunder);
+    font-size: 0.95rem;
+}
+
+/* Contact Section - Mobile Style */
+.contact-box {
+    background: linear-gradient(135deg, var(--warna-aksen), var(--warna-aksen-hover));
+    border-radius: 24px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+}
+
+.contact-title {
+    color: white !important;
+}
+
+.contact-title::after {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+
+.contact-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 1.5rem 0 2rem 0;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact-btn {
+    display: inline-block;
+    background: white;
+    color: var(--warna-aksen) !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-btn);
+    font-weight: 500;
+    width: 100%;
+    max-width: 300px;
+}
+
+.contact-btn.outline {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Section */
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer p {
+    color: var(--warna-teks-sekunder);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   3. RESPONSIVE UTAMA (Layar Tablet & Desktop)
+   ========================================= */
+
+@media screen and (min-width: 768px) {
+
+    /* Navbar Sejajar Kiri - Kanan */
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .nav-links {
+        gap: 2.5rem;
+    }
+
+    /* Hero jadi lebih nyaman proporsinya */
+    .hero {
+        padding-top: 80px;
+        /* Offset yang proporsional untuk single row navbar */
+        text-align: left;
+        /* Teks rata kiri untuk layar besar */
+    }
+
+    .hero-content {
+        flex-direction: row;
+        /* Bersebelahan secara horizontal: teks di Kiri, gambar di Kanan */
+        justify-content: space-between;
+        gap: 3rem;
+    }
+
+    .hero-text {
+        flex: 1;
+        /* Memastikan teks menggunakan ruang sebelahnya */
+    }
+
+    .hero-image {
+        width: 320px;
+        /* Foto lebih besar di Desktop */
+        height: 320px;
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-desc {
+        max-width: 600px;
+        margin-left: 0;
+        /* Kembalikan ke normal, tidak butuh rata tengah */
+        margin-right: 0;
+    }
+
+    /* Lingkaran dekorasi lebih besar di desktop */
+    .circle-1 {
+        width: 500px;
+        height: 500px;
+        top: -150px;
+        right: -100px;
+    }
+
+    /* About jadi 2 Kolom menyamping */
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .about-stats {
+        flex-direction: column;
+    }
+
+    /* Portfolio jadi Grid Multikolom */
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+
+    /* Contact Box lebih lega */
+    .contact-box {
+        padding: 4rem 3rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .contact-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .contact-btn {
+        width: auto;
+    }
+}

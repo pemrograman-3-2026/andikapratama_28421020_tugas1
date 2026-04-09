@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio statis Andika Pratama - Mahasiswa Informatika dan Design Enthusiast">
+    <title>Andika Pratama | Portfolio</title>
+
+    <!-- Google Fonts: Inter untuk teks biasa, Outfit untuk heading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Link ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar Section (Sticky) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">andikapratama.</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero section">
+        <!-- Dekorasi background sederhana -->
+        <div class="hero-decoration">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
+        </div>
+
+        <div class="hero-content container">
+            <div class="hero-text">
+                <p class="greeting">Halo, saya</p>
+                <h1 class="hero-title">Andika Pratama</h1>
+                <h2 class="hero-subtitle">Lulusan SMK Multimedia | Creative & Communicative</h2>
+                <p class="hero-desc">
+                    Saya dikenal sebagai pribadi yang mudah beradaptasi, senang berkomunikasi dengan berbagai karakter,
+                    serta memiliki semangat belajar tinggi untuk terus mengembangkan potensi di dunia kerja.
+                </p>
+                <a href="#portfolio" class="btn btn-primary">Lihat Portfolio</a>
+            </div>
+            <div class="hero-image">
+                <!-- Simpan foto yang Anda lampirkan dengan nama "profile.jpg" di direktori yang sama (d:\tugas1) -->
+                <img src="main.JPG" alt="" class="profile-photo">
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah lulusan <strong>SMK Negeri 1 Liwa (Tahun 2024)</strong> jurusan
+                        <strong>Multimedia</strong>. Saya memiliki minat mendalam di bidang kreatif dan komunikasi.
+                    </p>
+                    <p>Dalam keseharian, saya dikenal sebagai pribadi yang percaya diri, mudah beradaptasi, dan mampu
+                        berkomunikasi dengan baik. Dengan semangat belajar yang tinggi, saya senantiasa proaktif bekerja
+                        sama dalam tim dan siap menghadapi berbagai tantangan di dunia kerja sesungguhnya.</p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>🎯 Hard Skills</h3>
+                        <p>Editing Foto & Video, Dasar Desain Grafis, Penggunaan Software Multimedia</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>💬 Soft Skills</h3>
+                        <p>Komunikasi Baik, Mudah Beradaptasi, Kerja Sama Tim, Percaya Diri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Portfolio</h2>
+                <p class="section-subtitle">Pengalaman dan eksplorasi karya di bidang multimedia.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <!-- Placeholder untuk gambar (menggunakan gradient CSS murni) -->
+                    <div class="card-image placeholder-1"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Pengalaman Lomba</span>
+                        <h3 class="card-title">Kejuaraan Dinas Pertanian</h3>
+                        <p class="card-desc">Berpartisipasi aktif pada acara kejuaraan yang diselenggarakan oleh Dinas
+                            Pertanian daerah setempat.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="portfolio-card">
+                    <div class="card-image placeholder-2"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Multimedia</span>
+                        <h3 class="card-title">Video & Photo Editing</h3>
+                        <p class="card-desc">Mampu melakukan tugas editing dan mengolah aset visual mentah menggunakan
+                            berbagai jenis software multimedia konvensional.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <div class="card-image placeholder-3"></div>
+                    <div class="card-content">
+                        <span class="card-tag">Desain Grafis</span>
+                        <h3 class="card-title">Desain Pemasaran & Visual</h3>
+                        <p class="card-desc">Memiliki pengetahuan dasar untuk meracik desain grafis yang mudah dipahami
+                            demi keperluan informasi atau media promosi yang kreatif.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section bg-light">
+        <div class="container">
+            <div class="contact-box">
+                <h2 class="section-title contact-title">Mari Berkolaborasi</h2>
+                <p>Punya tawaran pekerjaan, proyek, atau sekadar ingin menyapa? Jangan ragu untuk menghubungi saya
+                    melalui kontak di bawah ini. (Lokasi Domisili: Lampung Barat)</p>
+
+                <div class="contact-links">
+                    <a href="mailto:dikatama440@gmail.com" class="contact-btn">
+                        Email: dikatama440@gmail.com
+                    </a>
+                    <a href="https://wa.me/6287797941283" class="contact-btn outline" target="_blank"
+                        rel="noopener noreferrer">
+                        WhatsApp: 087797941283
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Andika Pratama. Dibuat dengan kode murni tanpa JavaScript.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
