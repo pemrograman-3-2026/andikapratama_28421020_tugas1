@@ -375,7 +375,7 @@ h2.section-title::after {
 
 /* Gradient elegan untuk placeholder */
 .placeholder-1 {
-    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+    background: linear-gradient(135deg, #c9d0e7 0%, #c7d2fe 100%);
 }
 
 .placeholder-2 {
